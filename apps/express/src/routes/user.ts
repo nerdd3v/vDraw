@@ -3,6 +3,7 @@ import { decodeToken } from "../middlewares/decode";
 import { SigninSchema } from "@repo/common/zodSchema";
 import { CreateRoomSchema } from "@repo/common/zodSchema";
 import { generateToken } from "../middlewares/generateToken";
+import { client } from "@repo/db/client"
 
 const userRouter: Router =  express.Router();
 
