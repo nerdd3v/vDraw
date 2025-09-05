@@ -10,7 +10,8 @@
   "dependencies": {
     "@repo/typescript-config": "workspace:*",
     "@types/express": "^5.0.3",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "@repo/backend-common": "workspace:*"
   },
   "keywords": [],
   "author": "",
