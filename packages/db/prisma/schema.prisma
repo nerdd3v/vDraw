@@ -24,6 +24,7 @@ model User{
   chats Chat[]
 }
 
+
 model Room{
   id Int @id @default(autoincrement())
   slug String @unique 

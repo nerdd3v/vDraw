@@ -2,6 +2,7 @@
   "name": "@repo/db",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {},
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
