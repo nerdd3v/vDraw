@@ -7,9 +7,9 @@ import { client } from "@repo/db/client"
 
 const userRouter: Router =  express.Router();
 
-userRouter.post('/signup', (req, res)=>{
-    const {username, password} = req.body;
-    if(!username || !password){
+userRouter.post('/signup', async(req, res)=>{
+    const {username, password, name} = req.body;
+    if(!username || !password ){
         return res.status(401).json({message:"Credentials not provided"});
     }
     const validateInfo = SigninSchema.safeParse({username, password});
@@ -18,7 +18,14 @@ userRouter.post('/signup', (req, res)=>{
         return res.status(400).json({message:"wrong username and password format"})
     }
     try {
-        // append it in the database
+        await client.user.create({
+            //@ts-ignore
+            data:{
+                email: validateInfo.data?.username,
+                password: validateInfo.data.password,
+                name: name
+            }
+        })
 
         return res.status(200).json({message:'You are signed up'})
     } catch (error) {
