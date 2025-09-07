@@ -100,4 +100,17 @@ userRouter.post('/create-room', decodeToken, async(req, res)=>{
     }
 })
 
+userRouter.get("/chats/:roomId", async(req, res)=>{
+    const roomId = Number(req.params.roomId);
+    await client.chat.findMany({
+        where:{
+            roomId: roomId
+        },
+        orderBy:{
+            id: "desc"
+        },
+        take: 50
+    })
+})
+
 export {userRouter}
